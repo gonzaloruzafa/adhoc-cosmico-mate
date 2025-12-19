@@ -26,19 +26,17 @@ export default function Quiz({
             {/* Background decoration */}
             <motion.div
                 animate={{
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 90, 0],
+                    scale: [1, 1.1, 1],
                 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-20 -right-20 w-64 h-64 bg-brand-sage/10 rounded-full blur-3xl"
             />
             <motion.div
                 animate={{
-                    scale: [1, 1.5, 1],
-                    rotate: [0, -90, 0],
+                    scale: [1, 1.2, 1],
                 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-terracotta/5 rounded-full blur-3xl opacity-50"
+                transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-terracotta/5 rounded-full blur-3xl opacity-40"
             />
 
             {/* Header */}
