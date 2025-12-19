@@ -23,7 +23,8 @@ export default function Result({ archetype, onRestart }: ResultProps) {
     }, []);
 
     const handleShare = () => {
-        const text = `🧉 ¡Soy ${archetype.name}! ☄️\n\n"${archetype.vibe}"\n\n🌿 Ritual: ${archetype.ritual.join(', ')}\n💫 Recomendación: ${archetype.recommendation}\n\n🧉 ¿Qué mate sos vos? Descubrilo acá: https://mate.adhoc.inc`;
+        // Using very standard emojis to ensure maximum compatibility
+        const text = `🧉 ¡Soy ${archetype.name}! ✨\n\n"${archetype.vibe}"\n\n🌿 Ritual: ${archetype.ritual.join(', ')}\n✅ Recomendación: ${archetype.recommendation}\n\n🧉 ¿Qué mate sos vos? Descubrilo acá: https://mate.adhoc.inc`;
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
         window.open(whatsappUrl, '_blank');
     };
@@ -46,16 +47,27 @@ export default function Result({ archetype, onRestart }: ResultProps) {
                 className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-terracotta/5 rounded-full blur-3xl opacity-30"
             />
 
+            {/* Header / Logos */}
+            <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-3 mb-8 relative z-10"
+            >
+                <Image src="/Cosmico+Logo.webp" alt="Yerba Cósmico" width={80} height={28} className="h-auto" />
+                <div className="w-px h-4 bg-brand-forest/20" />
+                <Image src="/adhoc-logo.png" alt="Adhoc" width={65} height={20} className="h-auto" />
+            </motion.div>
+
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="text-center max-w-sm w-full mt-2 relative z-10"
+                className="text-center max-w-sm w-full relative z-10"
             >
                 <p className="text-[10px] font-bold tracking-[0.2em] uppercase opacity-40 mb-1 font-heading">Tu resultado es:</p>
                 <h1 className="text-4xl font-heading font-black mb-2 leading-[0.9] tracking-tighter uppercase">
                     {archetype.name}
                 </h1>
-                <p className="text-base opacity-80 mb-4 leading-tight max-w-[280px] mx-auto">
+                <p className="text-sm opacity-80 mb-4 leading-tight max-w-[280px] mx-auto min-h-[3em] flex items-center justify-center">
                     &ldquo;{archetype.vibe}&rdquo;
                 </p>
 
@@ -112,13 +124,21 @@ export default function Result({ archetype, onRestart }: ResultProps) {
                         Compartir por WhatsApp
                     </motion.button>
 
-                    <button
-                        onClick={onRestart}
-                        className="flex items-center justify-center gap-2 mx-auto text-xs font-bold text-brand-forest/40 hover:text-brand-forest transition-colors uppercase tracking-widest"
-                    >
-                        <RefreshCw size={12} />
-                        Reiniciar Viaje
-                    </button>
+                    <div className="flex flex-col items-center gap-4">
+                        <button
+                            onClick={onRestart}
+                            className="flex items-center justify-center gap-2 mx-auto text-xs font-bold text-brand-forest/40 hover:text-brand-forest transition-colors uppercase tracking-widest"
+                        >
+                            <RefreshCw size={12} />
+                            Reiniciar Viaje
+                        </button>
+
+                        <div className="flex items-center gap-3 opacity-20 hover:opacity-100 transition-opacity duration-500 mt-4">
+                            <Image src="/Cosmico+Logo.webp" alt="Yerba Cósmico" width={60} height={20} className="h-auto grayscale" />
+                            <div className="w-px h-3 bg-brand-forest/40" />
+                            <Image src="/adhoc-logo.png" alt="Adhoc" width={50} height={15} className="h-auto grayscale" />
+                        </div>
+                    </div>
                 </div>
             </motion.div>
         </div>
