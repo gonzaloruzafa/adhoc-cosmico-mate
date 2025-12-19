@@ -16,6 +16,9 @@ const archivoBlack = Archivo_Black({
 export const metadata: Metadata = {
   title: "¿Qué mate sos? | Yerba Cósmico × Adhoc",
   description: "Descubrí tu ritual de mate ideal en 45 segundos.",
+  icons: {
+    icon: "/adhoc-logo.png",
+  },
 };
 
 export const viewport: Viewport = {
