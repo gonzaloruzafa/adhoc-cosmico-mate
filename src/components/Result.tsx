@@ -23,8 +23,16 @@ export default function Result({ archetype, onRestart }: ResultProps) {
     }, []);
 
     const handleShare = () => {
-        const text = `¡Soy ${archetype.name}! ☄️\n\n🌿 Mi ritual: ${archetype.ritual.join(', ')}\n🧉 Recomendación: ${archetype.recommendation}\n\n¿Qué mate sos vos? Descubrilo acá: https://mate.adhoc.inc`;
-        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+        const comet = "\u2604\uFE0F";
+        const herb = "\u{1F33F}";
+        const mate = "\u{1F9C9}";
+
+        const text = `¡Soy ${archetype.name}! ${comet}\n\n${herb} Mi ritual: ${archetype.ritual.join(', ')}\n${mate} Recomendación: ${archetype.recommendation}\n\n¿Qué mate sos vos? Descubrilo acá: https://mate.adhoc.inc`;
+
+        const params = new URLSearchParams();
+        params.set('text', text);
+        const whatsappUrl = `https://wa.me/?${params.toString()}`;
+
         window.open(whatsappUrl, '_blank');
     };
 
