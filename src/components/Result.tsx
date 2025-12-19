@@ -23,8 +23,7 @@ export default function Result({ archetype, onRestart }: ResultProps) {
     }, []);
 
     const handleShare = () => {
-        // Using very standard emojis to ensure maximum compatibility
-        const text = `🧉 ¡Soy ${archetype.name}! ✨\n\n"${archetype.vibe}"\n\n🌿 Ritual: ${archetype.ritual.join(', ')}\n✅ Recomendación: ${archetype.recommendation}\n\n🧉 ¿Qué mate sos vos? Descubrilo acá: https://mate.adhoc.inc`;
+        const text = `¡Soy ${archetype.name}! ☄️\n\n🌿 Mi ritual: ${archetype.ritual.join(', ')}\n🧉 Recomendación: ${archetype.recommendation}\n\n¿Qué mate sos vos? Descubrilo acá: https://mate.adhoc.inc`;
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
         window.open(whatsappUrl, '_blank');
     };
