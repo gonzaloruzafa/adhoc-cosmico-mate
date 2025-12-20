@@ -36,6 +36,12 @@ export function useQuiz() {
             dulce: 0,
             botánico: 0,
             social: 0,
+            oficinista: 0,
+            madrugador: 0,
+            estudiantil: 0,
+            rebelde: 0,
+            zen: 0,
+            nostalgico: 0,
         };
 
         let dominantChoice: ArchetypeId | null = null;
