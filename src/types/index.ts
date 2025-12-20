@@ -4,7 +4,13 @@ export type ArchetypeId =
   | 'intenso'
   | 'dulce'
   | 'botánico'
-  | 'social';
+  | 'social'
+  | 'oficinista'
+  | 'madrugador'
+  | 'estudiantil'
+  | 'rebelde'
+  | 'zen'
+  | 'nostalgico';
 
 export interface Archetype {
   id: ArchetypeId;
