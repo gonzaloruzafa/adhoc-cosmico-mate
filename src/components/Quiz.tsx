@@ -22,39 +22,39 @@ export default function Quiz({
     onBack
 }: QuizProps) {
     return (
-        <div className="min-h-screen flex flex-col bg-brand-forest text-brand-cream p-6 overflow-hidden relative">
+        <div className="min-h-screen flex flex-col bg-white text-brand-forest p-6 overflow-hidden relative">
             {/* Background decoration */}
             <motion.div
                 animate={{
                     scale: [1, 1.1, 1],
                 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-20 -right-20 w-64 h-64 bg-brand-sage/10 rounded-full blur-3xl"
+                className="absolute -top-20 -right-20 w-64 h-64 bg-brand-sage/20 rounded-full blur-3xl"
             />
             <motion.div
                 animate={{
                     scale: [1, 1.2, 1],
                 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-terracotta/5 rounded-full blur-3xl opacity-40"
+                className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-terracotta/10 rounded-full blur-3xl opacity-40"
             />
 
             {/* Header */}
             <div className="flex items-center justify-between mb-8 z-10">
                 <button
                     onClick={onBack}
-                    className="p-2 -ml-2 text-brand-cream/60 hover:text-brand-cream transition-colors"
+                    className="p-2 -ml-2 text-brand-forest/60 hover:text-brand-forest transition-colors"
                 >
                     <ChevronLeft size={24} />
                 </button>
-                <span className="text-sm font-bold tracking-widest text-brand-cream/40 uppercase font-heading">
+                <span className="text-sm font-bold tracking-widest text-brand-forest/40 uppercase font-heading">
                     {currentStep} / {totalSteps}
                 </span>
                 <div className="w-10" /> {/* Spacer */}
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full h-1.5 bg-brand-cream/10 rounded-full mb-12 overflow-hidden z-10">
+            <div className="w-full h-1.5 bg-brand-forest/10 rounded-full mb-12 overflow-hidden z-10">
                 <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${progress}%` }}
@@ -72,7 +72,7 @@ export default function Quiz({
                         exit={{ opacity: 0, x: -20 }}
                         className="flex flex-col gap-8"
                     >
-                        <h2 className="text-3xl font-heading font-bold text-balance leading-tight">
+                        <h2 className="text-3xl font-heading font-bold text-balance leading-tight text-brand-forest">
                             {question.text}
                         </h2>
 
@@ -85,7 +85,7 @@ export default function Quiz({
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: idx * 0.1 }}
                                     onClick={() => onAnswer(option)}
-                                    className="w-full p-5 text-left rounded-2xl border-2 border-brand-cream/10 bg-brand-cream/5 hover:border-brand-sage hover:bg-brand-cream/10 transition-all text-xl font-medium"
+                                    className="w-full p-5 text-left rounded-2xl border-2 border-brand-forest/10 bg-brand-cream hover:border-brand-sage hover:bg-brand-sage/10 transition-all text-xl font-medium text-brand-forest"
                                 >
                                     {option.text}
                                 </motion.button>
