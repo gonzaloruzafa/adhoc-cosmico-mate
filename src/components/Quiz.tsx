@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft } from "lucide-react";
+import Image from "next/image";
 import { Question, Option } from "../types";
 
 interface QuizProps {
@@ -39,18 +40,28 @@ export default function Quiz({
                 className="absolute -bottom-20 -left-20 w-80 h-80 bg-brand-terracotta/10 rounded-full blur-3xl opacity-40"
             />
 
-            {/* Header */}
-            <div className="flex items-center justify-between mb-8 z-10">
-                <button
-                    onClick={onBack}
-                    className="p-2 -ml-2 text-brand-forest/60 hover:text-brand-forest transition-colors"
-                >
-                    <ChevronLeft size={24} />
-                </button>
-                <span className="text-sm font-bold tracking-widest text-brand-forest/40 uppercase font-heading">
-                    {currentStep} / {totalSteps}
-                </span>
-                <div className="w-10" /> {/* Spacer */}
+            {/* Header with Logos */}
+            <div className="flex flex-col items-center mb-6 z-10">
+                {/* Co-branding logos */}
+                <div className="flex items-center gap-3 mb-4">
+                    <Image src="/Cosmico+Logo.webp" alt="Yerba Cósmico" width={80} height={28} className="h-auto" />
+                    <div className="w-px h-5 bg-brand-forest/20" />
+                    <Image src="/adhoc-logo.png" alt="Adhoc" width={60} height={20} className="h-auto" />
+                </div>
+
+                {/* Navigation row */}
+                <div className="flex items-center justify-between w-full">
+                    <button
+                        onClick={onBack}
+                        className="p-2 -ml-2 text-brand-forest/60 hover:text-brand-forest transition-colors"
+                    >
+                        <ChevronLeft size={24} />
+                    </button>
+                    <span className="text-sm font-bold tracking-widest text-brand-forest/40 uppercase font-heading">
+                        {currentStep} / {totalSteps}
+                    </span>
+                    <div className="w-10" /> {/* Spacer */}
+                </div>
             </div>
 
             {/* Progress Bar */}
